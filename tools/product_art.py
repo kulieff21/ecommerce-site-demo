@@ -66,7 +66,7 @@ def label(x: int, y: int, w: int, h: int, c: dict[str, str], lines: int = 3) -> 
     mark_y = y + 16
     out.append(f'<circle cx="{cx:.0f}" cy="{mark_y}" r="7" fill="none" '
                f'stroke="{c["label_line"]}" stroke-width="2"/>')
-    out.append(f'<rect x="{cx - 3:.0f}" y="{mark_y - 1}" width="6" height="2" '
+    out.append(f'<circle cx="{cx + 2.4:.1f}" cy="{mark_y - 2.4}" r="2" '
                f'fill="{c["label_line"]}"/>')
     for i in range(lines):
         lw = w * (0.62 if i == 0 else 0.40 if i == 1 else 0.26)

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# The cart and the checkout are per-visitor states, not pages worth indexing.
+Disallow: /sebet.html
+Disallow: /odenis.html
+
+Sitemap: https://kulieff21.github.io/ecommerce-site-demo/sitemap.xml
