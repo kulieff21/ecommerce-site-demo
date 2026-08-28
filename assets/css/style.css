@@ -105,6 +105,9 @@ body {
   font-feature-settings: "cv05" 1;
 }
 img, svg { display: block; max-width: 100%; }
+/* Any element given `display` by an author rule ignores the hidden attribute, which
+   is how an empty-cart message ends up printed underneath a full cart. */
+[hidden] { display: none !important; }
 img { height: auto; }
 button, input, select, textarea { font: inherit; color: inherit; }
 a { color: inherit; }
@@ -431,6 +434,11 @@ p { text-wrap: pretty; }
 }
 .explain__copy { display: grid; gap: var(--s3); max-width: 46ch; }
 .explain__copy .formula { background: var(--ground); }
+/* The worked example stays beside the argument it illustrates while that argument
+   is being read, rather than scrolling away after the first paragraph. */
+@media (min-width: 881px) {
+  .explain__grid > .stack { position: sticky; top: calc(var(--header-h) + var(--s4)); }
+}
 @media (max-width: 880px) { .explain__grid { grid-template-columns: 1fr; } }
 
 /* --- Reviews -------------------------------------------------------------- */
@@ -590,6 +598,7 @@ p { text-wrap: pretty; }
   border-radius: var(--r-lg); padding: var(--s3);
 }
 .cart__thumb { background: var(--panel); border-radius: var(--arch); padding: var(--s2); }
+.cart__line .qty { justify-self: start; }
 .cart__sum { display: grid; gap: var(--s3); position: sticky; top: calc(var(--header-h) + var(--s3)); }
 .cart__row { display: flex; justify-content: space-between; gap: var(--s3); font-size: .94rem; }
 .cart__row--total { padding-top: var(--s3); border-top: 1px solid var(--line); font-size: 1.1rem; font-weight: 700; }
