@@ -181,6 +181,9 @@ def head(*, title: str, desc: str, slug: str, og_title: str | None = None,
     <meta property="og:title" content="{e(og_title or title)}" />
     <meta property="og:description" content="{e(og_desc or desc)}" />
     <meta property="og:image" content="{SITE}{og_image}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{e(og_title or title)}" />
     <meta property="og:url" content="{url}" />
     <meta name="twitter:card" content="summary_large_image" />
 {_jsonld(jsonld or [])}  </head>
@@ -271,10 +274,11 @@ def footer() -> str:
 
 def page(*, slug: str, title: str, desc: str, body: str, active: str = "",
          og_title: str | None = None, og_desc: str | None = None,
-         jsonld: list[dict] | None = None) -> str:
+         jsonld: list[dict] | None = None,
+         og_image: str = "assets/img/og-cover.png") -> str:
     return (
         head(title=title, desc=desc, slug=slug, og_title=og_title, og_desc=og_desc,
-             jsonld=jsonld)
+             jsonld=jsonld, og_image=og_image)
         + '\n  <body>\n    <a class="skip-link" href="#main">Əsas məzmuna keç</a>\n\n'
         + header(active or slug) + "\n\n"
         + '    <main id="main">\n' + body.rstrip() + "\n    </main>\n\n"
