@@ -322,6 +322,13 @@
       });
     });
 
+    /* The drawer ships open so that with scripting off every filter is reachable.
+       On a phone that buries the products, so close it once we know we can reopen it. */
+    var drawer = $(".filters--drawer");
+    if (drawer && window.matchMedia && window.matchMedia("(max-width: 900px)").matches) {
+      drawer.open = false;
+    }
+
     /* The WebSite SearchAction in the JSON-LD points here, so honour the parameter. */
     var q = new URLSearchParams(location.search).get("axtaris");
     if (q && search) { search.value = q; }

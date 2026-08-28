@@ -526,6 +526,9 @@ def build_product(p: Product) -> str:
                 desc=f"{p.lead} {money(p.price)}. Tərkibi faizlə açıq yazılıb. "
                      f"Bakıya eyni gün çatdırılma.",
                 og_title=f"{p.name} — {BRAND}", og_desc=p.lead,
+                # A product link pasted into WhatsApp should show the product, not a
+                # generic brand banner. Chat apps do not preview SVG, hence the PNG.
+                og_image=f"assets/img/og/{p.slug}.png",
                 body=body, jsonld=[product_ld, crumb_ld])
 
 
@@ -569,7 +572,7 @@ def build_cart() -> str:
         </noscript>
       </div>
 """
-    return page(slug="sebet.html", title=f"Səbət | {BRAND}",
+    return page(slug="sebet.html", title=f"Səbətiniz | {BRAND}",
                 desc="Seçdiyiniz məhsullar və yekun məbləğ. Bakı daxilində 50 ₼-dən "
                      "yuxarı sifarişlərdə çatdırılma pulsuzdur.",
                 body=body, jsonld=[ld])
@@ -923,7 +926,7 @@ def build_contact() -> str:
         </div>
       </div>
 """
-    return _content("elaqe.html", f"Əlaqə | {BRAND}",
+    return _content("elaqe.html", f"Əlaqə və dəstək | {BRAND}",
                     f"{BRAND} ilə əlaqə: telefon, e-poçt və mesaj forması. "
                     "Hər gün 09:00–20:00.",
                     "Əlaqə", "Sualınız varsa yazın",
