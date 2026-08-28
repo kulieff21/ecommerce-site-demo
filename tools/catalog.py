@@ -48,7 +48,6 @@ INGREDIENTS: dict[str, tuple[str, str, str]] = {
     "Kollagen":                  ("#E5CBC0", "Elastiklik",     "Laboratoriya"),
     "Ceramid":                   ("#C7BBA4", "Baryeri bərpa edir", "Laboratoriya"),
     "Salisil turşusu":           ("#C5D2DA", "Məsaməni açır",  "Laboratoriya"),
-    "Retinal":                   ("#DFA458", "Yeniləyir",      "Laboratoriya"),
     "Kakao yağı":                ("#A47751", "Bərk yağ əsası", ""),
     "Şi yağı":                   ("#E2D7B4", "Qoruyucu yağ",   ""),
     "Bitki qliserini":           ("#D1DCD7", "Nəm çəkir",      ""),
@@ -611,6 +610,9 @@ def validate() -> list[str]:
             errs.append(f"{p.slug}: the printed rating is far from the reviews shown")
         if len(p.voices) > p.reviews:
             errs.append(f"{p.slug}: more reviews shown than the count claims")
+    used = {i for p in PRODUCTS for i, _ in p.formula}
+    for extra in sorted(set(INGREDIENTS) - used):
+        errs.append(f"ingredient {extra!r} is in the glossary but in no product")
     return errs
 
 
