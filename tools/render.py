@@ -15,7 +15,7 @@ import json
 
 from catalog import CAT_SLUG, CATEGORIES, INGREDIENTS, Product
 
-SITE = "https://kulieff21.github.io/ecommerce-site-demo/"
+SITE = "https://twenion.github.io/ecommerce-site-demo/"
 BRAND = "Zərrə"
 PHONE_HUMAN = "+994 12 000 00 00"
 PHONE_LINK = "+99412000000"

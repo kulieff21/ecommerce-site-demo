@@ -5,4 +5,4 @@ Allow: /
 Disallow: /sebet.html
 Disallow: /odenis.html
 
-Sitemap: https://kulieff21.github.io/ecommerce-site-demo/sitemap.xml
+Sitemap: https://twenion.github.io/ecommerce-site-demo/sitemap.xml

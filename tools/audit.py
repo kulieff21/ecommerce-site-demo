@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE = "https://kulieff21.github.io/ecommerce-site-demo/"
+SITE = "https://twenion.github.io/ecommerce-site-demo/"
 
 FAILS: list[str] = []
 NOTES: list[tuple[str, str]] = []
